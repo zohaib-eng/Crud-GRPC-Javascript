@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package bookPackage;
+
+service Book {
+  rpc allBooks(voidNoParam) returns (bookItems);
+  rpc createBook(bookItem) returns (bookItem);
+  rpc readBook(bookId) returns (bookItem);
+  rpc updateBook(bookId) returns (bookItem);
+  rpc DeleteBook(bookId) returns (bookItem);
+}
+
+message voidNoParam {}
+
+message bookItem {
+  int32 id = 1;
+  string title = 2;
+  string author = 3;
+  string content = 4;
+}
+
+message bookItems {
+  repeated bookItem items = 1;
+}
+
+message bookId {
+  int32 id = 1;
+}
